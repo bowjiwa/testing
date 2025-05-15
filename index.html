@@ -3,73 +3,135 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Maija’s Testing Little Page</title>
+  <title>Maija’s Garden</title>
   <style>
     :root {
       --bg: #fdfaf6;
       --accent: #b49fcc;
-      --text: #444;
-      --card-bg: #ffffffdd;
+      --text: #3e3e3e;
+      --card-bg: rgba(255, 255, 255, 0.85);
+      --flower: #e6c6ff;
+    }
+
+    * {
+      box-sizing: border-box;
     }
 
     body {
       margin: 0;
       padding: 0;
-      font-family: 'Georgia', serif;
       background-color: var(--bg);
+      font-family: 'Georgia', serif;
       color: var(--text);
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
-      height: 100vh;
+      justify-content: flex-start;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
     }
 
-    .card {
-      background-color: var(--card-bg);
-      padding: 2rem 3rem;
-      border-radius: 16px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-      text-align: center;
-      max-width: 500px;
-    }
-
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
+    h1, h2 {
       color: var(--accent);
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+
+    .container {
+      margin-top: 3rem;
+      max-width: 800px;
+      padding: 2rem;
+      background-color: var(--card-bg);
+      border-radius: 18px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+      text-align: center;
+      position: relative;
+      z-index: 1;
     }
 
     p {
       font-size: 1.1rem;
-      line-height: 1.6;
+      line-height: 1.7;
+      margin: 1rem 0;
     }
 
     button {
-      margin-top: 1.5rem;
-      padding: 0.7rem 1.5rem;
+      margin-top: 2rem;
+      padding: 0.8rem 1.6rem;
       background-color: var(--accent);
       color: white;
       border: none;
-      border-radius: 10px;
+      border-radius: 12px;
       font-size: 1rem;
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: background 0.3s ease, transform 0.3s ease;
     }
 
     button:hover {
+      background-color: #9c7bbf;
       transform: scale(1.05);
-      background-color: #9e88b5;
+    }
+
+    .journal {
+      text-align: left;
+      margin-top: 2rem;
+      background-color: #ffffffc2;
+      padding: 1rem 1.5rem;
+      border-radius: 12px;
+      box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+    }
+
+    .flower {
+      position: absolute;
+      top: -40px;
+      left: 50%;
+      width: 20px;
+      height: 20px;
+      background-color: var(--flower);
+      border-radius: 50%;
+      animation: float 6s infinite ease-in-out;
+      opacity: 0.3;
+      transform: translateX(-50%);
+    }
+
+    @keyframes float {
+      0% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(25px); }
+      100% { transform: translateX(-50%) translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        margin: 2rem 1rem;
+        padding: 1.5rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+
+      button {
+        font-size: 0.95rem;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="card">
-    <h1>Hello, internet.</h1>
-    <p>
-      Welcome to the softest, most elegant corner of cyberspace.<br />
-      Curated by yours truly, with love and a little sass.
-    </p>
-    <button onclick="alert('You are art.')">Tap me gently</button>
+  <div class="flower"></div>
+  <div class="container">
+    <h1>Welcome to Maija’s Garden</h1>
+    <p>This is a soft space. You’re safe here. You’re wanted here. <br>
+      Let your mind rest and wander under pixel petals.</p>
+    <button onclick="alert('You’re glowing, don’t hide it.')">Tell me something sweet</button>
+
+    <div class="journal">
+      <h2>Dear Diary</h2>
+      <p>
+        Today I decided to build something silly, soft, and beautiful.
+        Because why not? The world is loud—but here, I can breathe.
+      </p>
+    </div>
   </div>
 </body>
 </html>
